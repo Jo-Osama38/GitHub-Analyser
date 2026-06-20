@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyses</title>
+</head>
+<body>
+    <form action="/" method="post" >
+        <input type="text" name="username" id="username">
+        <button type="submit" class="username_btn"></button>
+    </form>
+    <h1>Hello {{username}}</h1>
+    <h6>{{data}}</h6>
+    <h4>name {{name}}</h4>
+    <h4>repos {{repos}}</h4>
+    {% if message %}
+        <script>
+            alert("The User Name Not Found")
+        </script>
+    {% endif %}
+</body>
+</html>
