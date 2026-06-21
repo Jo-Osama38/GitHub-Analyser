@@ -10,13 +10,33 @@
         <input type="text" name="username" id="username">
         <button type="submit" class="username_btn"></button>
     </form>
-    <h1>Hello {{username}}</h1>
-    <h6>{{data}}</h6>
-    <h4>name {{name}}</h4>
-    <h4>repos {{repos}}</h4>
+    {% if name and repos %}
+        <div class="profile">
+            <h1>Hello {{name}}</h1>
+            <h2>Number repos : {{repos}}</h2>
+            <img src="{{url_img}}" >
+            <h3>Bio: {{bio}}</h3>
+            <h3>Following : {{following}}</h3>
+            <h3>Followers : {{followers}}</h3>
+    
+            {%for i in names_repos %}
+            
+                <h1>Name Repo: {{i["name"]}}</h1>
+                <h1>{{i["description"]}}</h1>
+                <h1>{{i["Top_language"]}}</h1>
+                <h1>{{i["forks"]}}</h1>
+                <hr>
+          
+            {%endfor%}
+
+
+
+        </div>
+    {%endif%}
+
     {% if message %}
         <script>
-            alert("The User Name Not Found")
+            alert("{{message}}")
         </script>
     {% endif %}
 </body>
