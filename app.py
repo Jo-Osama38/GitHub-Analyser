@@ -1,23 +1,12 @@
 from flask import Flask ,render_template ,request
 import requests 
 from collections import Counter
+from analyzer import total_score
+from ai_analyzer import ai_analyzer
+
 
 
 app = Flask(__name__)
-
-def total_score (repos,num_followers,num_stars):
-    
-            score = 20
-            if repos <= 60:score += repos / 2 
-            else :score += 30
-
-            if num_followers <= 250: score += num_followers/10
-            else : score += 25
-
-            if num_stars <= 125: score += num_stars/5
-            else : score += 25
-
-            return score
 
 
 @app.route("/" , methods = ["POST","GET"])
@@ -37,6 +26,7 @@ def home ():
     most_lang = None
     total_stars = 0
     score = None
+    aiAnalyzer =None
 
 
     if request.method == "POST":
@@ -74,16 +64,30 @@ def home ():
                 most_lang = Counter(most_lang_list).most_common()[0][0]
 
             score = total_score(repos,followers,total_stars)
+            
 
-        elif respose.status_code == 404:
+        elif respose.status_code == 404:  
             message = "The User Name Not Found"
+
+
+
+        profile = {
+            "repos": repos,
+            "followers": followers,
+            "stars": stars,
+            "top_language": most_lang,
+            "score": score
+        }
+        aiAnalyzer = ai_analyzer(profile)
+          
 
         
 
 
     return render_template('index.html', name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
-                           ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score)
+                           ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score,
+                           aiAnalyzer = aiAnalyzer)
 
 
 
