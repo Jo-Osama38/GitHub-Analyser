@@ -1,9 +1,9 @@
 
 
-def total_score (repos,num_followers,num_stars):
+def total_score (nums,num_followers,num_stars):
     
             score = 20
-            if repos <= 60:score += repos / 2 
+            if nums <= 60:score += nums / 2 
             else :score += 30
 
             if num_followers <= 250: score += num_followers/10
@@ -17,9 +17,6 @@ def total_score (repos,num_followers,num_stars):
 
 from datetime import datetime, timezone
 def calc_time(time):
-
-
-            time = "2026-06-25T00:42:31Z"
 
             post_time = datetime.strptime(time, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
             today_date = datetime.now(timezone.utc).date()
@@ -35,3 +32,32 @@ def calc_time(time):
                 last_update = f"Last Update : {days_ago} days ago "
 
             return last_update
+
+global num 
+num = 1
+def first_project(datanums):
+       
+        name_project = datanums[0]["name"]
+        time_create_project = datanums[0]["created_at"]
+        for _ in datanums :
+            if time_create_project > datanums[num]["created_at"]:
+                name_project = datanums[num]["name"]
+                time_create_project = datanums[num]["created_at"]
+                num += 1
+
+        return name_project
+
+def Latest_project(datanums):
+       
+        name_project = datanums[0]["name"]
+        time_create_project = datanums[0]["created_at"]
+        for _ in datanums :
+            if time_create_project < datanums[num]["created_at"]:
+                name_project = datanums[num]["name"]
+                time_create_project = datanums[num]["created_at"]
+                num += 1
+
+        return name_project
+
+            
+       

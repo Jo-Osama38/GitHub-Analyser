@@ -1,7 +1,7 @@
 from flask import Flask ,render_template ,request
 import requests 
 from collections import Counter
-from analyzer import total_score ,calc_time
+from analyzer import total_score ,calc_time ,first_project ,Latest_project
 import time
 # from ai_analyzer import ai_analyzer
 
@@ -29,6 +29,8 @@ def home ():
     aiAnalyzer =None
     total_forks = 0
     num_repos_description = 0
+    name_first_project = None
+    name_Last_project = None
 
 
     if request.method == "POST":
@@ -72,6 +74,7 @@ def home ():
                 total_forks  += fork
                 most_lang_list.append(Top_language_all)
                 total_stars += data_repos[num]["stargazers_count"]
+
                 num += 1
             if len(data_repos) > 0 :
                 most_lang = Counter(most_lang_list).most_common()[0][0]
@@ -84,6 +87,11 @@ def home ():
             message = "The User Name Not Found"
 
 
+
+
+
+        name_first_project = first_project(data_repos)
+        name_Last_project  = Latest_project(data_repos)
 
         profile = {
             "repos": repos,
@@ -104,7 +112,7 @@ def home ():
     return render_template('index.html', name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
                            ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score,
-                           aiAnalyzer = aiAnalyzer,total_forks = total_forks)
+                           aiAnalyzer = aiAnalyzer,total_forks = total_forks ,lastproject = name_Last_project,firstproject= name_first_project)
 
 
 
