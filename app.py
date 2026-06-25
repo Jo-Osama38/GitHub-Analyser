@@ -1,9 +1,9 @@
 from flask import Flask ,render_template ,request
 import requests 
 from collections import Counter
-from analyzer import total_score
-from ai_analyzer import ai_analyzer
-
+from analyzer import total_score ,calc_time
+import time
+# from ai_analyzer import ai_analyzer
 
 
 app = Flask(__name__)
@@ -27,6 +27,8 @@ def home ():
     total_stars = 0
     score = None
     aiAnalyzer =None
+    total_forks = 0
+    num_repos_description = 0
 
 
     if request.method == "POST":
@@ -50,21 +52,33 @@ def home ():
                 name_repo = data_repos[i]["name"]
                 description = data_repos[i]['description']
                 Top_language= data_repos[i]['language']
-                forks= data_repos[i]['forks']
+                forks = data_repos[i]['forks']
                 stars = data_repos[i]["stargazers_count"]
-                names_repos.append({ "name" :f"{i+1}. {name_repo}","description":f"Description : {description}"
-                                    ,"Top_language":f"Top_language:{Top_language}","forks":f"Forks : {forks}","stars":f"Stars : {stars}"})
+                last_update = data_repos[i]["updated_at"]
+                names_repos.append({ "name" :f"{i+1}. {name_repo}",
+                                    "description":f"Description : {description}"
+                                    ,"Top_language":f"Top_language:{Top_language}",
+                                    "forks":f"Forks : {forks}",
+                                    "stars":f"Stars : {stars}",
+                                    "lastupdate":f"Last Update : {calc_time(last_update)}"
+                                    })
 
             for _ in data_repos:
+                description = data_repos[num]["description"]
+                if description:
+                    num_repos_description += 1
                 Top_language_all= data_repos[num]['language']
+                fork = data_repos[num]["forks_count"]
+                total_forks  += fork
                 most_lang_list.append(Top_language_all)
                 total_stars += data_repos[num]["stargazers_count"]
                 num += 1
             if len(data_repos) > 0 :
                 most_lang = Counter(most_lang_list).most_common()[0][0]
 
+
             score = total_score(repos,followers,total_stars)
-            
+            documentation_score = (num_repos_description/repos) * 100 
 
         elif respose.status_code == 404:  
             message = "The User Name Not Found"
@@ -74,11 +88,14 @@ def home ():
         profile = {
             "repos": repos,
             "followers": followers,
-            "stars": stars,
+            "total_stars": stars,
             "top_language": most_lang,
-            "score": score
+            "score": score,
+            "total_forks": total_forks,
+            "documentation_score" : documentation_score
+
         }
-        aiAnalyzer = ai_analyzer(profile)
+        # aiAnalyzer = ai_analyzer(profile)
           
 
         
@@ -87,7 +104,7 @@ def home ():
     return render_template('index.html', name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
                            ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score,
-                           aiAnalyzer = aiAnalyzer)
+                           aiAnalyzer = aiAnalyzer,total_forks = total_forks)
 
 
 
