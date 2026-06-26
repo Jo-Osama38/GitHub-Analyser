@@ -8,16 +8,17 @@
 </head>
 <body class="home_page">
 
-    <div class="definition">
-        <h1 class="first_sentenc">Analyze any <span>GitHub</span> profile</h1>
-        <h1 class="first_p">Get a detailed developer score, repository stats, and personalized tips to improve your GitHub presence</h1>
+    <div class="countaner">
+        <div class="definition">
+            <h1 class="first_sentenc">Analyze any  <span class="github"> GitHub </span> profile</h1>
+            <h1 class="first_p">Get a detailed developer score, repository stats, and personalized tips to improve your GitHub presence</h1>
+        </div>
+
+
+        <form action="/analyze" method="post" >
+            <input type="text" name="username" id="username" placeholder="Enter GitHub Username ... ">
+            <button type="submit" class="username_btn">Analyze</button>
+        </form>
     </div>
-
-
-    <form action="/analyze" method="post" >
-        <input type="text" name="username" id="username" placeholder="Enter GitHub Username ... ">
-        <button type="submit" class="username_btn">Analyze</button>
-    </form>
-        
 </body>
 </html>
