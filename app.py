@@ -13,7 +13,11 @@ app = Flask(__name__)
 @app.route("/" )
 @app.route("/home")
 def home ():
-    return render_template("index.html")
+    torvalds_img = "https://avatars.githubusercontent.com/u/1024025?v=4"
+    facebook_img = "https://avatars.githubusercontent.com/u/69631?v=4"
+    google_img = "https://avatars.githubusercontent.com/u/1342004?v=4"
+    microsoft_img = "https://avatars.githubusercontent.com/u/6154722?v=4"
+    return render_template("index.html" ,torvalds_img = torvalds_img , facebook_img = facebook_img, google_img=google_img , microsoft_img = microsoft_img)
 
 @app.route("/analyze", methods=["POST"])
 def analyzer():

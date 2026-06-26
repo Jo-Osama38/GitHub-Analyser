@@ -6,19 +6,70 @@
     <link rel="stylesheet" href="{{ url_for('static',filename= 'style.css') }}">
     <title>GitHub Portfolio Analyzer</title>
 </head>
-<body class="home_page">
+<body >
+    <header>
+        <h1 class="logo">G.P.Analyzer</h1>
+        <div style="margin-right: 4em;" >
+            <a href="#">Analysing</a>
+            <a href="#">Features</a>
+            <a href="#">How it work</a>
 
-    <div class="countaner">
-        <div class="definition">
-            <h1 class="first_sentenc">Analyze any  <span class="github"> GitHub </span> profile</h1>
-            <h1 class="first_p">Get a detailed developer score, repository stats, and personalized tips to improve your GitHub presence</h1>
         </div>
+    </header>
+
+    <section class="section1">
+        <div class="countaner">
+            <div class="definition">
+                <h1 class="first_sentenc">Analyze any  <span class="github"> GitHub </span> profile</h1>
+                <h1 class="first_p">Get a detailed developer score, repository stats, and personalized tips to improve your GitHub presence</h1>
+            </div>
 
 
-        <form action="/analyze" method="post" >
-            <input type="text" name="username" id="username" placeholder="Enter GitHub Username ... ">
-            <button type="submit" class="username_btn">Analyze</button>
-        </form>
-    </div>
+            <form action="/analyze" method="post" >
+                <input type="text" name="username" id="username" placeholder="Enter GitHub Username ... ">
+                <button type="submit" class="btn" id="username_btn">Analyze</button>
+            </form>
+
+            <h1 id="try">TRY</h1>
+            <div class="cards_trying">
+                <div class="torvalds_card">
+                    <img src="{{torvalds_img}}" >
+                    <button class = "btn_card" onclick=torvalds()>torvalds</button>
+                </div>
+                <div class="facebook_card">
+                    <img src="{{facebook_img}}" >
+                    <button class = "btn_card" onclick=facebook()>facebook</button>
+                </div>
+                <div class="google_card">
+                    <img src="{{google_img}}" >
+                    <button class = "btn_card" onclick=google()>google</button>
+                </div>
+                <div class="microsoft_card">
+                    <img src="{{microsoft_img}}" >
+                    <button class = "btn_card" onclick=microsoft()>microsoft</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function torvalds(){
+            let inputFeld = document.getElementById("username")
+            inputFeld.value = "torvalds"
+        }
+        function facebook(){
+            let inputFeld = document.getElementById("username")
+            inputFeld.value = "facebook"
+        }
+        function google(){
+            let inputFeld = document.getElementById("username")
+            inputFeld.value = "google"
+        }
+        function microsoft(){
+            let inputFeld = document.getElementById("username")
+            inputFeld.value = "microsoft"
+        }
+    </script>
 </body>
 </html>

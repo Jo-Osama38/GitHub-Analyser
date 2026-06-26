@@ -3,18 +3,19 @@
     padding: 0;
 }
 
-.home_page{
-    height: 100vh;
-    background: linear-gradient(to bottom right,#d4ff3f,black,black,#d4ff3f);
+.section1{
+    height: 107vh;
+    width: 100%;
+    background: linear-gradient(to bottom right,#d4ff3f,black,black,black,black,#d4ff3f);
 }
 
 .countaner{
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-
     width: 60%;
     margin: 0 20%;
 }
@@ -28,7 +29,8 @@
     align-items: center;
     color: white;
     height: 50%;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
+
 }
 
 .first_sentenc{
@@ -58,12 +60,12 @@ span {
 form{
     position: relative;
     width: 60%;
-    height: 30%;
+    height: 7%;
 }
 
 input{
     width: 100%;
-    height: 23%;
+    height: 100%;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.089);
     padding-left: 0.9em;
@@ -77,24 +79,93 @@ input:focus{
     box-shadow: 0 0 8px #d4ff3f ;
 }
 
-.username_btn{
+#username_btn{
     position: absolute;
     top: 9.5px;
     right: -10px;
+    width: 21%;
+    height: 72%;
+}
+.btn , .btn_card{
     color: black;
     font-weight: 700;
-    background-color: #d4ff3f;
     border-radius: 20px;
-    width: 21%;
-    height: 17%;
     outline: none;
     border: none;
     font-size: 1em;
+    background: linear-gradient(45deg ,#d4ff3f ,#d4ff3f , #678401 ,#d4ff3f,#d4ff3f);
+    background-size: 200% auto;
+    transition: background-position 0.5s , transform 0.2s ease;
 }
-.username_btn :hover{
-    animation: sweb 1s forwards;
+.btn:hover , .btn_card:hover{
+    background-position: right center;
+    transform: scale(1.05);
 }
-@keyframes sweb {
-    
+.btn:active , .btn_card:active{
+    transform: scale(0.95);
+}
+.btn_card{
+    margin-top: 1em;
+    font-size: 0.8em;
+    padding: 0.3em;
+}
+img{
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
 }
 
+.cards_trying{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    
+}
+#try{
+    margin-top: 1em;
+    color: white;
+}
+.torvalds_card{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5em;
+}
+.facebook_card{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5em;
+}
+.google_card{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5em;
+}
+.microsoft_card{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5em;
+}
+
+header{
+    background:#d5ff3f1b;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+.logo{
+    margin-left: 3em;
+}
+
+header a{
+    font-size: 1.4em;
+    text-decoration: none;
+    color:#d4ff3f;
+    padding-right:1em;
+}
+header a:hover{
+    color:#678401;
+}
