@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename= 'style.css') }}">
+    <title>Analyze</title>
+</head>
+<body>
+    {% if name  %}
+        <div class="profile">
+            {% if real_name %}
+                <h1>{{real_name}}</h1>
+            {%else%}
+                <h1>{{name}}</h1>
+            {%endif%}
+            <h1>{{name}}</h1>
+            <h2>Number repos : {{repos}}</h2>
+            <img src="{{url_img}}" >
+            <h3>Bio: {{bio}}</h3>
+            <h3>Following : {{following}}</h3>
+            <h3>Followers : {{followers}}</h3>
+            {% if most_lang %}
+                <h3>Most Language used : {{most_lang}}</h3>
+            {% endif %}
+            <h3>Total Stars : {{total_stars}}</h3>
+            <h3>Total forks : {{total_forks}}</h3>
+            <h3>GitHub Score : {{score}} / 100</h3>
+
+            <h3>First Project : {{firstproject}}</h3>
+            <h3>Last Project : {{lastproject}}</h3>
+
+    
+            {%for i in names_repos %}
+            
+                <h1>Name Repo: {{i["name"]}}</h1>
+                <h1>{{i["description"]}}</h1>
+                <h1>{{i["Top_language"]}}</h1>
+                <h1>{{i["forks"]}}</h1>
+                <h1>{{i["stars"]}}</h1>
+                <h1>{{i["lastupdate"]}}</h1>
+                <hr>
+          
+            {%endfor%}
+
+
+
+        </div>
+    {%endif%}
+
+        <h1>{{aiAnalyzer["summary"]}}</h1>
+        
+    {% if message %}
+        <script>
+            alert("{{message}}")
+        </script>
+    {% endif %}
+</body>
+</html>

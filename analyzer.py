@@ -33,10 +33,9 @@ def calc_time(time):
 
             return last_update
 
-global num 
-num = 1
+
 def first_project(datanums):
-       
+        num = 1
         name_project = datanums[0]["name"]
         time_create_project = datanums[0]["created_at"]
         for _ in datanums :
@@ -48,7 +47,7 @@ def first_project(datanums):
         return name_project
 
 def Latest_project(datanums):
-       
+        num = 1 
         name_project = datanums[0]["name"]
         time_create_project = datanums[0]["created_at"]
         for _ in datanums :

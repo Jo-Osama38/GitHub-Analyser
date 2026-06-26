@@ -9,11 +9,17 @@ import time
 app = Flask(__name__)
 
 
-@app.route("/" , methods = ["POST","GET"])
-@app.route("/home", methods = ["POST","GET"])
+
+@app.route("/" )
+@app.route("/home")
 def home ():
+    return render_template("index.html")
+
+@app.route("/analyze", methods=["POST"])
+def analyzer():
     username = None
     name =  None
+    real_name =  None
     repos = None
     message = None
     url_img = None
@@ -28,6 +34,8 @@ def home ():
     score = None
     aiAnalyzer =None
     total_forks = 0
+    stars = 0
+    documentation_score = 0
     num_repos_description = 0
     name_first_project = None
     name_Last_project = None
@@ -48,6 +56,7 @@ def home ():
             bio = data["bio"]
             followers = data["followers"]
             following = data["following"]
+            real_name = data["name"]
             num = 0
             
             for i in range(min(5,len(data_repos))):
@@ -81,7 +90,8 @@ def home ():
 
 
             score = total_score(repos,followers,total_stars)
-            documentation_score = (num_repos_description/repos) * 100 
+            if repos:
+                documentation_score = (num_repos_description/repos) * 100 
 
         elif respose.status_code == 404:  
             message = "The User Name Not Found"
@@ -89,9 +99,9 @@ def home ():
 
 
 
-
-        name_first_project = first_project(data_repos)
-        name_Last_project  = Latest_project(data_repos)
+        if repos:
+            name_first_project = first_project(data_repos)
+            name_Last_project  = Latest_project(data_repos)
 
         profile = {
             "repos": repos,
@@ -109,7 +119,7 @@ def home ():
         
 
 
-    return render_template('index.html', name = name ,repos = repos , url_img = url_img
+    return render_template('analyze.html', real_name= real_name,name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
                            ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score,
                            aiAnalyzer = aiAnalyzer,total_forks = total_forks ,lastproject = name_Last_project,firstproject= name_first_project)

@@ -3,55 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analyses</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename= 'style.css') }}">
+    <title>GitHub Portfolio Analyzer</title>
 </head>
-<body>
-    <form action="/" method="post" >
-        <input type="text" name="username" id="username">
-        <button type="submit" class="username_btn"></button>
+<body class="home_page">
+
+    <div class="definition">
+        <h1 class="first_sentenc">Analyze any <span>GitHub</span> profile</h1>
+        <h1 class="first_p">Get a detailed developer score, repository stats, and personalized tips to improve your GitHub presence</h1>
+    </div>
+
+
+    <form action="/analyze" method="post" >
+        <input type="text" name="username" id="username" placeholder="Enter GitHub Username ... ">
+        <button type="submit" class="username_btn">Analyze</button>
     </form>
-    {% if name  %}
-        <div class="profile">
-            <h1>Hello {{name}}</h1>
-            <h2>Number repos : {{repos}}</h2>
-            <img src="{{url_img}}" >
-            <h3>Bio: {{bio}}</h3>
-            <h3>Following : {{following}}</h3>
-            <h3>Followers : {{followers}}</h3>
-            {% if most_lang %}
-                <h3>Most Language used : {{most_lang}}</h3>
-            {% endif %}
-            <h3>Total Stars : {{total_stars}}</h3>
-            <h3>Total forks : {{total_forks}}</h3>
-            <h3>GitHub Score : {{score}} / 100</h3>
-
-            <h3>First Project : {{firstproject}}</h3>
-            <h3>Last Project : {{lastproject}}</h3>
-
-    
-            {%for i in names_repos %}
-            
-                <h1>Name Repo: {{i["name"]}}</h1>
-                <h1>{{i["description"]}}</h1>
-                <h1>{{i["Top_language"]}}</h1>
-                <h1>{{i["forks"]}}</h1>
-                <h1>{{i["stars"]}}</h1>
-                <h1>{{i["lastupdate"]}}</h1>
-                <hr>
-          
-            {%endfor%}
-
-
-
-        </div>
-    {%endif%}
-
-        <h1>{{aiAnalyzer["summary"]}}</h1>
         
-    {% if message %}
-        <script>
-            alert("{{message}}")
-        </script>
-    {% endif %}
 </body>
 </html>
