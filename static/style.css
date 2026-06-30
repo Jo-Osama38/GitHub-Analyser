@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .section1{
@@ -93,7 +94,7 @@ input:focus{
     outline: none;
     border: none;
     font-size: 1em;
-    background: linear-gradient(45deg ,#d4ff3f ,#d4ff3f , #678401 ,#d4ff3f,#d4ff3f);
+    background: linear-gradient(45deg ,#d4ff3f ,#d4ff3f , #7c9e00 ,#d4ff3f,#d4ff3f);
     background-size: 200% auto;
     transition: background-position 0.5s , transform 0.2s ease;
 }

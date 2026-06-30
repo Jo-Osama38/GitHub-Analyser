@@ -4,57 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',filename= 'style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename= 'analyses.css') }}">
     <title>Analyze</title>
 </head>
 <body>
-    {% if name  %}
-        <div class="profile">
-            {% if real_name %}
-                <h1>{{real_name}}</h1>
-            {%else%}
-                <h1>{{name}}</h1>
-            {%endif%}
-            <h1>{{name}}</h1>
-            <h2>Number repos : {{repos}}</h2>
-            <img src="{{url_img}}" >
-            <h3>Bio: {{bio}}</h3>
-            <h3>Following : {{following}}</h3>
-            <h3>Followers : {{followers}}</h3>
-            {% if most_lang %}
-                <h3>Most Language used : {{most_lang}}</h3>
-            {% endif %}
-            <h3>Total Stars : {{total_stars}}</h3>
-            <h3>Total forks : {{total_forks}}</h3>
-            <h3>GitHub Score : {{score}} / 100</h3>
+        <section id="section1">
+            <div class="section1">
+                <img src="{{url_img}}" >
+                <div class="difenation">
+                    {% if real_name %}
+                        <h1 class="realname">{{real_name}}</h1>
+                    {%else%}
+                        <h1 class="realname">{{name}}</h1>
+                    {%endif%}
+                    <h1 class="name">@{{name}}</h1>
+                    {% if bio %}
+                        <h3 class="bio">{{bio}}</h3>
+                    {%endif%}
+                    <div class="follow">
+                        <h3>Following : {{following}}</h3>
+                        <h3>Followers : {{followers}}</h3>
+                        <h3>{{years_created_github}} YEARS IN GITHUB</h3>
 
-            <h3>First Project : {{firstproject}}</h3>
-            <h3>Last Project : {{lastproject}}</h3>
+                    </div>
+                </div>
+            <a class="view" href="https://github.com/{{name}}">View GitHub</a>
+            </div>
+        </section>
 
-    
-            {%for i in names_repos %}
-            
-                <h1>Name Repo: {{i["name"]}}</h1>
-                <h1>{{i["description"]}}</h1>
-                <h1>{{i["Top_language"]}}</h1>
-                <h1>{{i["forks"]}}</h1>
-                <h1>{{i["stars"]}}</h1>
-                <h1>{{i["lastupdate"]}}</h1>
-                <hr>
-          
-            {%endfor%}
+<!-- 
+        <h2>Number repos : {{repos}}</h2>
+        {% if most_lang %}
+            <h3>Most Language used : {{most_lang}}</h3>
+        {% endif %}
+        <h3>Total Stars : {{total_stars}}</h3>
+        <h3>Total forks : {{total_forks}}</h3>
+        <h3>GitHub Score : {{score}} / 100</h3>
+
+        <h3>First Project : {{firstproject}}</h3>
+        <h3>Last Project : {{lastproject}}</h3>
 
 
-
-        </div>
-    {%endif%}
+        {%for i in names_repos %}
+        
+            <h1>Name Repo: {{i["name"]}}</h1>
+            <h1>{{i["description"]}}</h1>
+            <h1>{{i["Top_language"]}}</h1>
+            <h1>{{i["forks"]}}</h1>
+            <h1>{{i["stars"]}}</h1>
+            <h1>{{i["lastupdate"]}}</h1>
+            <hr>
+        
+        {%endfor%}
 
         <h1>{{aiAnalyzer["summary"]}}</h1>
-        
+         -->
     {% if message %}
-        <script>
-            alert("{{message}}")
-        </script>
+        <a class="btn" href="home">ReAnalyse</a>
     {% endif %}
 </body>
 </html>

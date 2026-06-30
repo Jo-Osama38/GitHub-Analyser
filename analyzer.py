@@ -58,5 +58,17 @@ def Latest_project(datanums):
 
         return name_project
 
+
+def created_since(create_at):
+
+    created = datetime.strptime(create_at,"%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
+    years = now.year - created.year
+
+    if (now.month, now.day) < (created.month, created.day):
+        years -= 1
+    return years
+      
+
             
        

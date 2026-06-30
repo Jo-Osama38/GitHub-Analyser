@@ -1,8 +1,8 @@
 from flask import Flask ,render_template ,request
 import requests 
 from collections import Counter
-from analyzer import total_score ,calc_time ,first_project ,Latest_project
-import time
+from analyzer import total_score ,calc_time ,first_project ,Latest_project,created_since
+
 # from ai_analyzer import ai_analyzer
 
 
@@ -43,6 +43,7 @@ def analyzer():
     num_repos_description = 0
     name_first_project = None
     name_Last_project = None
+    create_at = None
 
 
     if request.method == "POST":
@@ -61,6 +62,7 @@ def analyzer():
             followers = data["followers"]
             following = data["following"]
             real_name = data["name"]
+            create_at =data ["created_at"]
             num = 0
             
             for i in range(min(5,len(data_repos))):
@@ -106,6 +108,7 @@ def analyzer():
         if repos:
             name_first_project = first_project(data_repos)
             name_Last_project  = Latest_project(data_repos)
+            years_created_github = created_since(create_at)
 
         profile = {
             "repos": repos,
@@ -126,7 +129,8 @@ def analyzer():
     return render_template('analyze.html', real_name= real_name,name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
                            ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score,
-                           aiAnalyzer = aiAnalyzer,total_forks = total_forks ,lastproject = name_Last_project,firstproject= name_first_project)
+                           aiAnalyzer = aiAnalyzer,total_forks = total_forks ,lastproject = name_Last_project,firstproject= name_first_project,
+                           years_created_github =years_created_github)
 
 
 
