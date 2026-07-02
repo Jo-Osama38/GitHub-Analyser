@@ -44,6 +44,7 @@ def analyzer():
     name_first_project = None
     name_Last_project = None
     create_at = None
+    number = 0 
 
 
     if request.method == "POST":
@@ -124,13 +125,14 @@ def analyzer():
           
 
         
-
+        number = total_stars / repos
+        avg=  f"{number:.1f}"
 
     return render_template('analyze.html', real_name= real_name,name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
                            ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score,
                            aiAnalyzer = aiAnalyzer,total_forks = total_forks ,lastproject = name_Last_project,firstproject= name_first_project,
-                           years_created_github =years_created_github)
+                           years_created_github =years_created_github,avg=avg)
 
 
 

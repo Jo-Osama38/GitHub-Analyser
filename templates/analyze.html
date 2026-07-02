@@ -10,7 +10,7 @@
 </head>
 <body>
         <section id="section1">
-            <div class="section1">
+            <div class="part1">
                 <img src="{{url_img}}" >
                 <div class="difenation">
                     {% if real_name %}
@@ -35,13 +35,47 @@
             </div>
         </section>
 
+        <div class="cards_basic_info">
+                {% if most_lang %}
+                    <div class="card_basic">
+                        <i class="bi bi-trophy"></i>
+                        <p>most long</p>
+                        <h1>{{most_lang}}</h1>
+                    </div>
+                {%else%}
+                    <div class="card_basic">
+                        <i class="bi bi-trophy"></i>
+                        <p>most long</p>
+                        <h1>you dont have any language</h1>
+                    </div>
+                {%endif%}
+
+                <div class="card_basic">
+                    <i class="bi bi-bar-chart-line-fill"></i>
+                    <p>number repo</p>
+                    <h1>{{repos}}</h1>
+                </div>
+                <div class="card_basic">
+                    <i class="bi bi-bar-chart-line-fill"></i>
+                    <p>total stars</p>
+                    <h1>{{total_stars}}</h1>
+            
+                </div>
+                <div class="card_basic">
+                    <i class="bi bi-bar-chart-line-fill"></i>
+                    <p>total forks</p>
+                    <h1>{{total_forks}}</h1>
+            
+                </div>
+                <div class="card_basic">
+                    <i class="bi bi-bar-chart-line-fill"></i>
+                    <p>avg starts/repo</p>
+                    <h1>{{avg}}</h1>
+            
+                </div>
+
+
 <!-- 
-        <h2>Number repos : {{repos}}</h2>
-        {% if most_lang %}
-            <h3>Most Language used : {{most_lang}}</h3>
-        {% endif %}
-        <h3>Total Stars : {{total_stars}}</h3>
-        <h3>Total forks : {{total_forks}}</h3>
         <h3>GitHub Score : {{score}} / 100</h3>
 
         <h3>First Project : {{firstproject}}</h3>
@@ -63,7 +97,7 @@
         <h1>{{aiAnalyzer["summary"]}}</h1>
          -->
 
-    <div class="light"></div>
+     <div class="light"></div>
     {% if message %}
         <a class="btn" href="home">ReAnalyse</a>
     {% endif %}
