@@ -1,43 +1,108 @@
 body{
     background-color: black;
-    color: wheat;
+    color:white;
+    
 }
 *{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
+.light{
+    display: flex;
+    justify-self: self-end;
+    align-self: self-start;
+    position: fixed;
+    z-index: 99999;
+    background: linear-gradient(to bottom right,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),#d5ff3f4d);
+    width: 50%;
+    height: 34em;
+}
+
 .section1{
     display: flex;
-    border:  2px solid #d4ff3f;
-    width: 80%;
+    width: 60%;
     height: 100%;
-    margin-left: 5%;
+    margin-left:15%;
     margin-top: 5%;
     padding: 2em;
+    background: linear-gradient(to bottom left,#d4ff3f,black,black,black,black,black,#d4ff3f);
+    border-radius: 50px;
+
 }
 img{
-    width: 13em;
-    height: 13;
-    border-radius: 30px;
+    width: 10em;
+    height: 10em;
+    border-radius: 20px;
+    border: 1px solid #d4ff3f;
+    background-color: #d5ff3f20;
 
 }
 .difenation{
     margin-left: 3em;
-    border: 1px solid blue;
 }
 .realname{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0em;
+}
+.name{
+    font-size: 1.4em;
+    opacity: 0.5;
+
+}
+.bio{
+    opacity: 0.5;
+    font-size: 1.6;
+    margin:  1em 0;
+}
+.nobio{
+    margin: 2.5em 0;
 }
 .follow{
     display: flex;
 }
 .follow h3{
-    margin-left: 1em;
+    margin-right: 1em;
+    font-family: sans-serif;
+    font-size: 0.7em;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    padding: 0.5em 1em; 
+}
+.follow h3:hover{
+    border-color: #d4ff3f;
+}
+.follow i{
+    color: #d4ff3f;
+    margin-right: 0.2em;
+    font-size: 1.4em;
 }
 
 .view{
-    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    text-decoration: none;
+    color: #ffff;
+    height: 1em;
+    padding: 1em;
+    transition: 1s ease;
+}
+
+.view i{
+    margin-left: 0.2em;
+    font-size: 1.5em;
+}
+.view:hover i {
+    color:#d4ff3f;
+}
+.view:hover{
+    border-color: #d4ff3f;
+    transform: scale(1.1);
 }
