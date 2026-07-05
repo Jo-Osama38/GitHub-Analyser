@@ -1,14 +1,19 @@
 from flask import Flask ,render_template ,request
 import requests 
 from collections import Counter
-from analyzer import total_score ,calc_time ,first_project ,Latest_project,created_since
+from analyzer import total_score ,calc_time ,first_project ,Latest_project,created_since ,top_lang
+from dotenv import load_dotenv
 
 # from ai_analyzer import ai_analyzer
-
+import os
 
 app = Flask(__name__)
 
-
+load_dotenv()
+TOKEN = os.getenv("token")
+headers = {
+    "Authorization": f"Bearer {TOKEN}"
+}
 
 @app.route("/" )
 @app.route("/home")
@@ -32,8 +37,6 @@ def analyzer():
     following = None
     name_repo = None
     names_repos = []
-    most_lang_list = []
-    most_lang = None
     total_stars = 0
     score = None
     aiAnalyzer =None
@@ -45,7 +48,10 @@ def analyzer():
     name_Last_project = None
     create_at = None
     number = 0 
-
+    top_language= None
+    languages_counter = Counter()
+    language_bytes = {}
+    language_data= None
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -69,13 +75,11 @@ def analyzer():
             for i in range(min(5,len(data_repos))):
                 name_repo = data_repos[i]["name"]
                 description = data_repos[i]['description']
-                Top_language= data_repos[i]['language']
                 forks = data_repos[i]['forks']
                 stars = data_repos[i]["stargazers_count"]
                 last_update = data_repos[i]["updated_at"]
                 names_repos.append({ "name" :f"{i+1}. {name_repo}",
-                                    "description":f"Description : {description}"
-                                    ,"Top_language":f"Top_language:{Top_language}",
+                                    "description":f"Description : {description}",
                                     "forks":f"Forks : {forks}",
                                     "stars":f"Stars : {stars}",
                                     "lastupdate":f"Last Update : {calc_time(last_update)}"
@@ -85,16 +89,24 @@ def analyzer():
                 description = data_repos[num]["description"]
                 if description:
                     num_repos_description += 1
-                Top_language_all= data_repos[num]['language']
                 fork = data_repos[num]["forks_count"]
                 total_forks  += fork
-                most_lang_list.append(Top_language_all)
                 total_stars += data_repos[num]["stargazers_count"]
+                language_url = data_repos[num]["languages_url"]
+                language_data = requests.get(language_url,headers=headers).json()
+                if "message" in language_data:
+                    print(language_data["message"])
+                    continue
+                for lang, bytes_count in language_data.items():
+                    if lang not in language_bytes:
+                        language_bytes[lang] = 0
+
+                    language_bytes[lang] += int(bytes_count)
 
                 num += 1
-            if len(data_repos) > 0 :
-                most_lang = Counter(most_lang_list).most_common()[0][0]
 
+
+            top_language = top_lang(language_bytes)
 
             score = total_score(repos,followers,total_stars)
             if repos:
@@ -115,7 +127,7 @@ def analyzer():
             "repos": repos,
             "followers": followers,
             "total_stars": stars,
-            "top_language": most_lang,
+            "top_language": top_language,
             "score": score,
             "total_forks": total_forks,
             "documentation_score" : documentation_score
@@ -130,9 +142,9 @@ def analyzer():
 
     return render_template('analyze.html', real_name= real_name,name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
-                           ,names_repos = names_repos ,most_lang = most_lang,total_stars = total_stars,score = score,
+                           ,names_repos = names_repos ,total_stars = total_stars,score = score,
                            aiAnalyzer = aiAnalyzer,total_forks = total_forks ,lastproject = name_Last_project,firstproject= name_first_project,
-                           years_created_github =years_created_github,avg=avg)
+                           years_created_github =years_created_github,avg=avg , top_language = top_language,language_bytes=language_bytes)
 
 
 

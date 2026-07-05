@@ -42,23 +42,23 @@
         </section>
 
         <div class="cards_basic_info">
-                {% if most_lang %}
+                {% if top_language %}
                     <div class="card_basic">
                         <i class="fa-solid fa-crown"></i>
                         <p>TOP LANGUAGE</p>
-                        <h1>{{most_lang}}</h1>
+                        <h1>{{top_language}}</h1>
                     </div>
                 {%else%}
                     <div class="card_basic">
                         <i class="fa-solid fa-crown"></i>
                         <p>TOP LANGUAGE</p>
-                        <h1>you dont have any language</h1>
+                        <h1 id="nolang">NO LANGUAGES</h1>
                     </div>
                 {%endif%}
 
                 <div class="card_basic">
                     <i class="bi bi-git"></i>
-                    <p>RESPOSITORIES</p>
+                    <p>REPOSITORIES</p>
                     <h1>{{repos}}</h1>
                 </div>
                 <div class="card_basic">

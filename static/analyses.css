@@ -173,3 +173,7 @@ img{
 .card_basic:hover{
     border-color: #d4ff3f;
 }
+#nolang{
+    margin-top: 0.5em;
+    font-size: 1.5em;
+}

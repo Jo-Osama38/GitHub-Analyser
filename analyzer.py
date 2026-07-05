@@ -68,7 +68,15 @@ def created_since(create_at):
     if (now.month, now.day) < (created.month, created.day):
         years -= 1
     return years
-      
+
+def top_lang(listoflang):
+        if not listoflang:
+               return "umknow"
+
+
+        top_language = max(listoflang, key=listoflang.get)
+        return top_language
+
 
             
        
