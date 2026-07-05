@@ -1,7 +1,7 @@
 from flask import Flask ,render_template ,request
 import requests 
 from collections import Counter
-from analyzer import total_score ,calc_time ,first_project ,Latest_project,created_since ,top_lang
+from analyzer import total_score ,calc_time ,first_project ,Latest_project,created_since ,top_lang,activiy,calc_score_repos,calc_score_forks,calc_score_stars,calc_score_doc,calc_score_activy,calc_score_lang,calc_score_profils
 from dotenv import load_dotenv
 
 # from ai_analyzer import ai_analyzer
@@ -52,6 +52,7 @@ def analyzer():
     languages_counter = Counter()
     language_bytes = {}
     language_data= None
+    update_profile= None
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -69,8 +70,12 @@ def analyzer():
             followers = data["followers"]
             following = data["following"]
             real_name = data["name"]
-            create_at =data ["created_at"]
+            create_at =data ["created_at"] 
+            update_profile = data["updated_at"]
             num = 0
+            company = data["company"]
+            blog = data["blog"]
+            location = data["location"]
             
             for i in range(min(5,len(data_repos))):
                 name_repo = data_repos[i]["name"]
@@ -107,15 +112,16 @@ def analyzer():
 
 
             top_language = top_lang(language_bytes)
-
-            score = total_score(repos,followers,total_stars)
+            last_activity_days = activiy(update_profile)
+            num_lang = num(language_bytes)
+           
             if repos:
                 documentation_score = (num_repos_description/repos) * 100 
 
+
+
         elif respose.status_code == 404:  
             message = "The User Name Not Found"
-
-
 
 
         if repos:
@@ -126,7 +132,7 @@ def analyzer():
         profile = {
             "repos": repos,
             "followers": followers,
-            "total_stars": stars,
+            "total_stars": total_stars,
             "top_language": top_language,
             "score": score,
             "total_forks": total_forks,
@@ -135,16 +141,34 @@ def analyzer():
         }
         # aiAnalyzer = ai_analyzer(profile)
           
+        num1 = total_stars / repos
+        avg_stars=  "{num1:.1f}"
 
+        num2 = total_forks/repos
+        avg_forks = "{num2:.1f}"
         
-        number = total_stars / repos
-        avg=  f"{number:.1f}"
+
+
+        score_repos = calc_score_repos(repos)
+        score_stars = calc_score_stars(avg_stars)
+        score_forks = calc_score_forks(total_forks)
+        score_documentation = calc_score_doc(documentation_score)
+        score_activity = calc_score_activy(last_activity_days)
+        score_lang = calc_score_lang(num_lang)
+        score_profile =calc_score_profils(name,bio,company,location,blog)
+
+        developer_score = score_repos+ score_stars+score_forks +score_documentation+score_activity+score_lang+score_profile
+
 
     return render_template('analyze.html', real_name= real_name,name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following
                            ,names_repos = names_repos ,total_stars = total_stars,score = score,
                            aiAnalyzer = aiAnalyzer,total_forks = total_forks ,lastproject = name_Last_project,firstproject= name_first_project,
-                           years_created_github =years_created_github,avg=avg , top_language = top_language,language_bytes=language_bytes)
+                           years_created_github =years_created_github,avg_stars=avg_stars , top_language = top_language,language_bytes=language_bytes,
+                           documentation_score=documentation_score,score_activity = score_activity ,
+                           score_repos=score_repos,score_stars=score_stars,score_forks=score_forks,
+                           score_documentation=score_documentation,score_lang=score_lang,score_profile=score_profile
+                           ,developer_score = developer_score)
 
 
 
