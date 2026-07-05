@@ -92,58 +92,64 @@ def activiy(time):
 
 def calc_score_repos(repos):
     if repos :
-            if repos > 15:
-                  repos_score = 5
+            if repos >= 15:
+                  score_repos = 5
             elif 15 < repos <30:
-                  repos_score = 10
+                  score_repos = 10
             elif 30 < repos < 50:
-                  repos_score = 15
+                  score_repos = 15
             elif 50 < repos:
-                  repos_score = 20 
+                  score_repos = 20
+            else:
+                  score_repos = 3
     else :
-            repos_score = 0
+            score_repos = 0
     
-    return repos_score
+    return score_repos
 
 
 def calc_score_stars(avg):
     if avg:
             if avg > 50:
-                stars_score = 5
+                score_stars = 5
             elif 50 < avg < 100 :
-                  stars_score = 7
+                  score_stars = 7
             elif 100 < avg < 150 :
-                  stars_score = 10
+                  score_stars = 10
             elif 150 < avg < 200 :
-                  stars_score = 13
+                  score_stars = 13
             elif  avg > 200 :
-                  stars_score = 15
+                  score_stars = 15
+            else :
+                  score_stars = 3
     else:
-          stars_score = 0
-    return stars_score
+          score_stars = 0
+    return score_stars
 
 def calc_score_forks(avg):
     if avg:
             if avg > 50:
-                forks_score = 5
+                score_forks = 5
             elif 50 < avg < 100 :
-                  forks_score = 7
+                  score_forks = 7
             elif 100 < avg < 150 :
-                  forks_score = 10
+                  score_forks = 10
             elif 150 < avg < 200 :
-                  forks_score = 13
+                  score_forks = 13
             elif  avg > 200 :
-                  forks_score = 15
+                  score_forks = 15
+            else:
+                  score_forks = 3
     else:
-          forks_score = 0
-    return forks_score
+          score_forks = 0
+    return score_forks
 
 def calc_score_doc(persent):
     if persent:
-            doc_score = persent / 10
+            score_documentation = persent / 10
     else:
-          doc_score = 0
-    return doc_score
+          score_documentation = 0
+    return score_documentation
 
 def calc_score_activy(days):
     if days < 3:
@@ -172,16 +178,17 @@ def calc_score_activy(days):
     return score_activity
 
 def calc_score_profils(name,bio,company,location,blog):
+        score_profile = 0
         if name :
-            score_profile += 1
+            score_profile += 2
         if bio :
-            score_profile += 1
+            score_profile += 2
         if company :
-            score_profile += 1
+            score_profile += 2
         if location :
-            score_profile += 1
+            score_profile += 2
         if blog :
-            score_profile += 1
+            score_profile += 2
         return score_profile
 
 def calc_score_lang(num_lang):

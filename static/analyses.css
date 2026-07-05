@@ -177,3 +177,9 @@ img{
     margin-top: 0.5em;
     font-size: 1.5em;
 }
+
+progress{
+    width: 100%;
+    height: 2em;
+    accent-color: #d4ff3f;
+}

@@ -3,6 +3,7 @@ import requests
 from collections import Counter
 from analyzer import total_score ,calc_time ,first_project ,Latest_project,created_since ,top_lang,activiy,calc_score_repos,calc_score_forks,calc_score_stars,calc_score_doc,calc_score_activy,calc_score_lang,calc_score_profils
 from dotenv import load_dotenv
+from concurrent.futures import ThreadPoolExecutor
 
 # from ai_analyzer import ai_analyzer
 import os
@@ -14,6 +15,13 @@ TOKEN = os.getenv("token")
 headers = {
     "Authorization": f"Bearer {TOKEN}"
 }
+
+def get_languages(repo):
+            url = repo["languages_url"]
+            response = requests.get(url)
+
+            return response.json()
+
 
 @app.route("/" )
 @app.route("/home")
@@ -53,6 +61,16 @@ def analyzer():
     language_bytes = {}
     language_data= None
     update_profile= None
+    num_lang = 0
+    score_repos = 0
+    score_stars = 0
+    score_forks = 0
+    score_documentation = 0
+    score_activity = 0
+    score_lang = 0
+    score_profile =0
+    developer_score =0
+    
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -97,23 +115,24 @@ def analyzer():
                 fork = data_repos[num]["forks_count"]
                 total_forks  += fork
                 total_stars += data_repos[num]["stargazers_count"]
-                language_url = data_repos[num]["languages_url"]
-                language_data = requests.get(language_url,headers=headers).json()
+
+                num += 1
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                results = list(executor.map(get_languages, data_repos))
+
+            for language_data in results:
                 if "message" in language_data:
-                    print(language_data["message"])
                     continue
+
                 for lang, bytes_count in language_data.items():
                     if lang not in language_bytes:
                         language_bytes[lang] = 0
-
-                    language_bytes[lang] += int(bytes_count)
-
-                num += 1
+                    language_bytes[lang] += bytes_count
 
 
             top_language = top_lang(language_bytes)
             last_activity_days = activiy(update_profile)
-            num_lang = num(language_bytes)
+            num_lang = len(language_bytes)
            
             if repos:
                 documentation_score = (num_repos_description/repos) * 100 
@@ -129,7 +148,7 @@ def analyzer():
             name_Last_project  = Latest_project(data_repos)
             years_created_github = created_since(create_at)
 
-        profile = {
+        profile = { 
             "repos": repos,
             "followers": followers,
             "total_stars": total_stars,
@@ -141,17 +160,16 @@ def analyzer():
         }
         # aiAnalyzer = ai_analyzer(profile)
           
-        num1 = total_stars / repos
-        avg_stars=  "{num1:.1f}"
+        avg_stars = total_stars / repos
 
-        num2 = total_forks/repos
-        avg_forks = "{num2:.1f}"
-        
+        avg_forks = total_forks/repos
+      
+   
 
 
         score_repos = calc_score_repos(repos)
         score_stars = calc_score_stars(avg_stars)
-        score_forks = calc_score_forks(total_forks)
+        score_forks = calc_score_forks(avg_forks)
         score_documentation = calc_score_doc(documentation_score)
         score_activity = calc_score_activy(last_activity_days)
         score_lang = calc_score_lang(num_lang)
