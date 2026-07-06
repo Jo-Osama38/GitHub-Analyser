@@ -14,7 +14,7 @@ body{
     align-self: self-end;
     position: fixed;
     z-index: 9999;
-    background: linear-gradient(to bottom right,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),#d5ff3ff7);
+    background: linear-gradient(to bottom right,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),#d5ff3fab);
     width: 100%;
     height: 34em;
     pointer-events: none;
@@ -218,9 +218,8 @@ progress{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 50%;
-    margin-top: 2em;
-    border: 1px solid wheat;
+    width: 40%;
+
 }
 .score_cards .card {
     display: flex;
@@ -231,7 +230,7 @@ progress{
     margin: 0.6em;
     border: 1px solid rgba(255, 255, 255, 0.192);
     background-color: rgba(255, 255, 255, 0.10);
-    width: 40%;
+    width: 46%;
     height: 7em;
     border-radius: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -239,14 +238,33 @@ progress{
 }
 .score_cards .card i{
     color: #d4ff3f;
+    font-size: 1.4em;
 }
 .score_cards .card p{
-    opacity: 0.5;
-    margin:  0.7em 0;
+    color: #ffffff86;
+    margin-top: 0.4em;
+    margin-bottom: 0.3em;
 }
 .score_cards .card h4{
     font-size: 1em;
 }
-#card_profile{
-    width: 83%;
+.score_cards .card span{
+    font-size: 1.5em;
+    color: white;
 }
+#card_profile{
+    width: 100%;
+}
+.dont_found_name{
+    display: flex;
+        margin-top: 2em;
+}
+.line{
+    height: 33em;
+    width: 0.4em;
+    border-radius: 15px;
+    background-color: #d5ff3f69;
+    margin-left: 2.5em;
+}
+
+
