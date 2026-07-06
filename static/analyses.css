@@ -236,7 +236,7 @@ progress{
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
-.score_cards .card i{
+.iconscore{
     color: #d4ff3f;
     font-size: 1.4em;
 }
@@ -267,4 +267,44 @@ progress{
     margin-left: 2.5em;
 }
 
+.check{
+    display: flex;
+    align-items: center;
+    font-size: 1em;
 
+}
+.check h5 {
+    margin-left: 1.5em;
+    color: rgba(255, 255, 255, 0.499);
+}
+.check i{
+    color:#d4ff3f;
+    font-weight: 900;
+    
+}
+.profil_score{
+    display: flex;
+    margin-bottom: 1.2em;
+    width: 74%;
+}
+.profil_score i{
+    color: #d4ff3f;
+    font-size: 2em;
+    margin-top: 0.5em;
+}
+.profile_show_score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self:center ;
+    margin-left: 20%;
+}
+.ai_tips{
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    width: 50%;
+    border: 2px solid greenyellow;
+}

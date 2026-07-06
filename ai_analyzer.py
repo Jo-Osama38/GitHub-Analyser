@@ -28,6 +28,12 @@ def ai_analyzer(profile):
                                     9. Next learning roadmap.
 
                                     Return ONLY valid JSON.
+                                    Do not write markdown.
+                                    Do not write ```json.
+                                    Do not write any explanation.
+                                    The first character must be {{
+                                    The last character must be }}
+                                    Every key and string must use double quotes.
 
                                     Format:
 
