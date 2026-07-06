@@ -18,7 +18,7 @@ headers = {
 
 def get_languages(repo):
             url = repo["languages_url"]
-            response = requests.get(url)
+            response = requests.get(url,headers=headers)
 
             return response.json()
 
@@ -70,7 +70,11 @@ def analyzer():
     score_lang = 0
     score_profile =0
     developer_score =0
-    
+    last_activity_days = 0
+    company =None
+    location = None
+    blog = None
+    years_created_github = 0
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -79,7 +83,7 @@ def analyzer():
         respose= requests.get(url)
         data = respose.json()
         if respose.status_code == 200:
-            repositories= requests.get(url_repos)
+            repositories= requests.get(url_repos,headers=headers)
             data_repos = repositories.json()
             url_img =data ["avatar_url"]
             name = data["login"]
@@ -159,10 +163,12 @@ def analyzer():
 
         }
         # aiAnalyzer = ai_analyzer(profile)
-          
-        avg_stars = total_stars / repos
-
-        avg_forks = total_forks/repos
+        if repos and repos > 0 :
+            avg_stars = total_stars / repos
+            avg_forks = total_forks/repos
+        else:
+            avg_forks = 0
+            avg_stars = 0 
       
    
 

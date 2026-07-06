@@ -35,7 +35,7 @@ header{
     box-sizing: border-box;
 }
 #section1{
-    margin-top: 6em;
+    margin-top: 8em;
 }
 .part1{
     display: flex;
@@ -128,7 +128,7 @@ img{
 
 .cards_basic_info{
     display:flex;
-    width: 95%;
+    width: 90%;
     height: 15em ;
     padding: 1em;
     justify-self: center;
@@ -178,8 +178,20 @@ img{
     font-size: 1.5em;
 }
 
+.developer_score{
+    width: 90%;
+    height: 25em;
+    border-radius: 20px;
+    padding: 1em;
+    margin:  5em 5%;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.192);
+
+}
+
 progress{
     width: 100%;
-    height: 2em;
+    height: 3em;
     accent-color: #d4ff3f;
 }

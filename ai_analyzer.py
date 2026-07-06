@@ -10,35 +10,35 @@ def ai_analyzer(profile):
         messages = [
             {
                 "role": "user",
-                "content": f"""Analyze this GitHub profile.
+                "content": f"""You are a senior software engineering recruiter and GitHub expert.
 
-                                    Give:
-                                    1. Summary
-                                    2. Strengths
-                                    3. Recommendations
+                                    Analyze the following GitHub profile.
+                                    profile : {profile}
 
-                                    Profile:
-                                    {profile}
+                                    Evaluate:
 
-                                    Retuen ONLY JSON 
-                                    Do not write explanations.
-                                    Do not write markdown.
-                                    Do not write ```json.
+                                    1. Overall summary.
+                                    2. Career level.
+                                    3. Strongest technical skills.
+                                    4. Weaknesses.
+                                    5. Repository quality.
+                                    6. Documentation quality.
+                                    7. Community engagement.
+                                    8. Suggestions to improve the GitHub profile.
+                                    9. Next learning roadmap.
 
-                                    The response must start with {{
-                                    and end with }}
+                                    Return ONLY valid JSON.
 
-                                    Format example:
-                                        
-                                        {{
-                                        "summary":"...",
-                                        "strengths":[
-                                        ],
-                                        "recommendations" :[
-                                        ],
-                                        "career_level": "...",
-                                        "next_steps": []
-                                        }}
+                                    Format:
+
+                                    {{
+                                    "summary":"",
+                                    "career_level":"",
+                                    "strengths":[],
+                                    "weaknesses":[],
+                                    "Tips_To_improve":[],
+                                    "next_steps":[]
+                                    }}
                                         and don't make it is very tall summary""",
 
                                     
