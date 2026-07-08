@@ -42,10 +42,15 @@ def ai_analyzer(profile):
                                     "career_level":"",
                                     "strengths":[],
                                     "weaknesses":[],
-                                    "Tips_To_improve":[],
-                                    "next_steps":[]
+                                    "next_steps":[],
+                                    "Tips_To_improve":[]
+        
                                     }}
-                                        and don't make it is very tall summary""",
+                                    Rules for "Tips_To_improve" only :
+                                        - Return exactly 6 tips
+                                        - Each tip must contain between 7 and 11 words
+                                        - Do not repeat the same idea
+                                    """,
 
                                     
             }

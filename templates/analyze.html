@@ -129,7 +129,7 @@
                             </div>
                        </div>
                         <div class="check">
-                            {% if realname %}
+                            {% if real_name %}
                                 <h5>Name<i class="bi bi-check"></i></h5>
                             {%else%}    
                                 <h5>Name<i class="bi bi-x"></i></h5>
@@ -164,8 +164,15 @@
 
                 <div class="line"></div>
                 <div class="ai_tips">
-                    <h1>TIPS TO IMPROVE</h1>
-                    <p>['Create high-quality repositories with good documentation and follow best practices', 'Engage with the community by contributing to open-source projects or commenting on issues', 'Develop a personal project with a strong use case to attract more followers']</p>
+                    <h1 class="summary">SUMMARY</h1>
+                    <p class="p_summary">{{aiAnalyzer["summary"]}}</p>
+
+                    <h1 class="tips">TIPS TO IMPROVE</h1>
+                    <ul>
+                        {%for tip in aiAnalyzer["Tips_To_improve"]%}
+                                <li>{{tip}}</li>
+                        {%endfor%}
+                    </ul>
                  </div>
         
             </div>
@@ -195,7 +202,7 @@
         <h1>{{aiAnalyzer["summary"]}}</h1>
          --> 
 
-     <div class="light"></div>
+     
     {% if message %}
         <a class="btn" href="home">ReAnalyse</a>
     {% endif %}
