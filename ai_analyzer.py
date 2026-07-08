@@ -50,11 +50,9 @@ def ai_analyzer(profile):
                                         - Return exactly 6 tips
                                         - Each tip must contain between 7 and 11 words
                                         - Do not repeat the same idea
-                                    """,
-
+                                    """,}],
                                     
-            }
-        ],
+                                response_format={"type": "json_object"},
     )
     data =  ((stream.choices[0].message.content))
     return json.loads(data)

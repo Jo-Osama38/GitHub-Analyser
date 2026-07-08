@@ -76,7 +76,7 @@
                 <div class="card_basic">
                     <i class="bi bi-activity"></i>
                     <p>AVG. STARS/REPO</p>
-                    <h1>{{avg}}</h1>
+                    <h1>{{avg_stars}}</h1>
             
                 </div>
         </div>
@@ -113,7 +113,7 @@
                     <div class="card">
                         <i class="iconscore bi-fire"></i>
                         <p><span>{{score_activity}}</span> / 10</p>
-                        <h4>ACTIvITY</h4>
+                        <h4>ACTIVITY</h4>
                     </div>
                     <div class="card">
                         <i class="iconscore bi-code-slash"></i>
@@ -176,14 +176,39 @@
                  </div>
         
             </div>
-
+             
 
         </div>
+        <h1 class="lang_repos">LANGUAGES & REPOS</h1>
+        <div class="section_lang_repos">
+            <div class="lang_form">
+                <h5><i class="bi bi-code-slash"></i>LANGUAGE DISTRIBUTION</h5>
+                    {%for lang,prsent in lang_prsents%}
+                        <p>{{lang}} <span>{{prsent}}%</span>
+                        </p>
+                        <progress value="{{prsent}}" max="100"></progress>
+                    {%endfor%}
+                </div>
+
+                <div class="projects_cards">
+                    {%for i in names_repos %}
+                        <div class="card_prject">
+                            <p>{{i["name"]}}</p>
+                            <p>{{i["description"]}}</p>
+                            <p>{{i["Top_language"]}}</p>
+                            <p>{{i["forks"]}}</p>
+                            <p>{{i["stars"]}}</p>
+
+                        </div>
+                    {%endfor%}
+                </div>
+        </div>
+        
 
 
 
-
-        <!-- <h3>First Project : {{firstproject}}</h3>
+<!-- 
+        <h3>First Project : {{firstproject}}</h3>
         <h3>Last Project : {{lastproject}}</h3>
 
 
@@ -194,13 +219,10 @@
             <h1>{{i["Top_language"]}}</h1>
             <h1>{{i["forks"]}}</h1>
             <h1>{{i["stars"]}}</h1>
-            <h1>{{i["lastupdate"]}}</h1>
-            <hr>
-        
-        {%endfor%}
 
-        <h1>{{aiAnalyzer["summary"]}}</h1>
-         --> 
+        
+        {%endfor%} -->
+         
 
      
     {% if message %}

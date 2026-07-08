@@ -318,9 +318,68 @@ progress{
     font-size: 1.1em;
     margin-bottom: 0.7em;
     opacity: 0.8;
+
 }
 .ai_tips li::marker{
     color: #d4ff3f;
     font-size: 1.4em;
 }
+.lang_form{
+    width: 20%;
+    min-height: 10em;
+    height: auto;
+    padding: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.10);
 
+    border-radius: 20px;
+}
+.lang_form progress{
+    height: 1em;
+
+}
+.lang_form p{
+    display: flex;
+    justify-content: space-between;
+        margin-top: 2em;
+    
+}
+.lang_form h5{
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+.lang_repos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    margin: 2em 0;
+    margin-top: 4em;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.section_lang_repos{
+    display: flex;
+    width: 90%;
+    margin:0 5% ;
+    border: 1px solid red;
+    margin-bottom: 5em;
+    min-height: 30em;
+    height: auto;
+}
+.card_prject{
+    width: 30%;
+    min-height: 15em;
+    height: 15em;
+    padding: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+
+}
+.projects_cards{
+    display: flex;
+    flex-wrap: nowrap;
+}

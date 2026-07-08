@@ -101,7 +101,7 @@ def analyzer():
             blog = data["blog"]
             location = data["location"]
             
-            for i in range(min(5,len(data_repos))):
+            for i in range(min(3,len(data_repos))):
                 name_repo = data_repos[i]["name"]
                 description = data_repos[i]['description']
                 forks = data_repos[i]['forks']
@@ -139,6 +139,16 @@ def analyzer():
             top_language = top_lang(language_bytes)
             last_activity_days = activiy(update_profile)
             num_lang = len(language_bytes)
+            total_lang_score = sum(language_bytes.values())
+            
+            lang_prsents_sort = dict(sorted(language_bytes.items(), key=lambda item: item[1], reverse=True))
+            lang_prsents ={}
+            for lang,bytess in lang_prsents_sort.items():
+                prsent = (bytess/ total_lang_score)*100
+                lang_prsents[lang] = round(prsent,2)
+
+            top_6_languages = list(lang_prsents.items())[:6]
+               
            
             if repos:
                 documentation_score = (num_repos_description/repos) * 100 
@@ -182,6 +192,8 @@ def analyzer():
         else:
             avg_forks = 0
             avg_stars = 0 
+
+        avg_stars = round(avg_stars,1)
       
    
 
@@ -206,7 +218,7 @@ def analyzer():
                            documentation_score=documentation_score,score_activity = score_activity ,
                            score_repos=score_repos,score_stars=score_stars,score_forks=score_forks,
                            score_documentation=score_documentation,score_lang=score_lang,score_profile=score_profile
-                           ,developer_score = developer_score)
+                           ,developer_score = developer_score,lang_prsents = top_6_languages,company=company,blog =blog,location=location)
 
 
 
