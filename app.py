@@ -109,11 +109,11 @@ def analyzer():
                 stars = data_repos[i]["stargazers_count"]
                 last_update = data_repos[i]["updated_at"]
                  
-                names_repos.append({ "name" :f"{name_repo}",
-                                    "description":f"{description}",
-                                    "forks":f"{forks}",
-                                    "stars":f"{stars}",
-                                    "Top_language":f"{language}",
+                names_repos.append({ "name" :name_repo,
+                                    "description":description,
+                                    "forks":forks,
+                                    "stars":stars,
+                                    "Top_language":language,
                                     "lastupdate":f"{calc_time(last_update)}"
                                     })
 

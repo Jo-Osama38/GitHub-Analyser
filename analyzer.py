@@ -24,17 +24,17 @@ def calc_time(time):
             post_date = post_time.date()
 
             if post_date == today_date:
-                last_update = "Last Update : Today "
+                last_update = "Today "
             elif (today_date - post_date).days == 1:
-                last_update = "Last Update : yesterday "
+                last_update = "yesterday "
             else:
                 days_ago = (today_date - post_date).days
                 if days_ago < 30:
-                      last_update = f"Last Update : {round(days_ago,1)} days ago "
+                      last_update = f"{round(days_ago,1)}d ago "
                 elif 365.25 > days_ago > 30 :
-                      last_update = f"Last Update : {round(days_ago/30,1)} month ago "
+                      last_update = f"{round(days_ago/30,1)}M ago "
                 else:
-                    last_update = f"Last Update : {round(days_ago/365.25,1)} years ago "
+                    last_update = f"{round(days_ago/365.25,1)}y ago "
 
 
             return last_update
