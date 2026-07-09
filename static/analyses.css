@@ -325,9 +325,10 @@ progress{
     font-size: 1.4em;
 }
 .lang_form{
-    width: 20%;
+    width: 25%;
     min-height: 10em;
     height: auto;
+    max-height: 30em;
     padding: 1em;
     border: 1px solid rgba(255, 255, 255, 0.192);
     background-color: rgba(255, 255, 255, 0.10);
@@ -367,19 +368,50 @@ progress{
     border: 1px solid red;
     margin-bottom: 5em;
     min-height: 30em;
+
     height: auto;
+    justify-content: space-between;
+
+
 }
 .card_prject{
-    width: 30%;
-    min-height: 15em;
-    height: 15em;
-    padding: 1em;
+    width: 47%;
+    height: 45%;
+    padding: 2em;
     border: 1px solid rgba(255, 255, 255, 0.192);
     background-color: rgba(255, 255, 255, 0.10);
     border-radius: 20px;
-
+    margin-left: 1em;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: 1s ease;
+    
 }
 .projects_cards{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    width: 60%;
+}
+.card_prject h3{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#d4ff3f;
+    margin-bottom: 1em;
+}
+.dis{
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.5;
+}
+.nodis{
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.5;
+    letter-spacing: 1px;
+}
+.info_project{
+    display: flex;
+    
 }

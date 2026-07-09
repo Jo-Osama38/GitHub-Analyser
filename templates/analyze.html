@@ -180,6 +180,7 @@
 
         </div>
         <h1 class="lang_repos">LANGUAGES & REPOS</h1>
+
         <div class="section_lang_repos">
             <div class="lang_form">
                 <h5><i class="bi bi-code-slash"></i>LANGUAGE DISTRIBUTION</h5>
@@ -193,12 +194,19 @@
                 <div class="projects_cards">
                     {%for i in names_repos %}
                         <div class="card_prject">
-                            <p>{{i["name"]}}</p>
-                            <p>{{i["description"]}}</p>
-                            <p>{{i["Top_language"]}}</p>
-                            <p>{{i["forks"]}}</p>
-                            <p>{{i["stars"]}}</p>
-
+                            <h3>{{i["name"]}}</h3>
+                            {%if i["description"] %}
+                                <p class="dis">{{i["description"]}}</p>
+                            {%elif%}
+                                <p class="nodis">NO DESCRIPTION</p>
+                            {%else%}
+                            <hr>
+                            <div class="info_project">
+                                <p>{{i["Top_language"]}}</p>
+                                <p>{{i["forks"]}}</p>
+                                <p>{{i["stars"]}}</p>
+                                <p>{{i["lastupdate"]}}</p>
+                            </div>
                         </div>
                     {%endfor%}
                 </div>

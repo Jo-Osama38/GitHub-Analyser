@@ -101,17 +101,20 @@ def analyzer():
             blog = data["blog"]
             location = data["location"]
             
-            for i in range(min(3,len(data_repos))):
+            for i in range(min(4,len(data_repos))):
                 name_repo = data_repos[i]["name"]
                 description = data_repos[i]['description']
+                language = data_repos[i]["language"]
                 forks = data_repos[i]['forks']
                 stars = data_repos[i]["stargazers_count"]
                 last_update = data_repos[i]["updated_at"]
-                names_repos.append({ "name" :f"{i+1}. {name_repo}",
-                                    "description":f"Description : {description}",
-                                    "forks":f"Forks : {forks}",
-                                    "stars":f"Stars : {stars}",
-                                    "lastupdate":f"Last Update : {calc_time(last_update)}"
+                 
+                names_repos.append({ "name" :f"{name_repo}",
+                                    "description":f"{description}",
+                                    "forks":f"{forks}",
+                                    "stars":f"{stars}",
+                                    "Top_language":f"{language}",
+                                    "lastupdate":f"{calc_time(last_update)}"
                                     })
 
             for _ in data_repos:

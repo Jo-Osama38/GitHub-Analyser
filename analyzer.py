@@ -30,11 +30,11 @@ def calc_time(time):
             else:
                 days_ago = (today_date - post_date).days
                 if days_ago < 30:
-                      last_update = f"Last Update : {days_ago} days ago "
+                      last_update = f"Last Update : {round(days_ago,1)} days ago "
                 elif 365.25 > days_ago > 30 :
-                      last_update = f"Last Update : {days_ago/30} month ago "
+                      last_update = f"Last Update : {round(days_ago/30,1)} month ago "
                 else:
-                    last_update = f"Last Update : {days_ago/365.25} years ago "
+                    last_update = f"Last Update : {round(days_ago/365.25,1)} years ago "
 
 
             return last_update
