@@ -1,7 +1,7 @@
 body{
 
     color:white;
-    background: linear-gradient(to bottom right,#d5ff3fab,black,black,black,black,black,#d5ff3fab);
+    background: linear-gradient(to bottom right,#d5ff3fab,black,black,black,black,black);
 
     
 }
@@ -534,5 +534,50 @@ progress{
     color: #d4ff3f;
     font-family: Arial, Helvetica, sans-serif;
     opacity: 0.6;
-    margin-bottom: auto;
+
+    margin-bottom: 1em;
+}
+.steps{
+    display: flex;
+    width: 90%;
+    margin:1em 5% ;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.10);
+    padding: 2.3em;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-bottom: 5em;
+
+}
+.steps div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.steps div h2{
+    justify-self: center;
+    align-items: center;
+    color: #d4ff3f;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.6;
+    font-size: 2em;
+}
+.steps div span{
+    color: white;
+
+}
+.steps div p{
+    font-size: 1em;
+    color: #d4ff3f;
+}
+.steps li{
+    font-size: 1.3em;
+    margin-bottom: 0.8em;
+    list-style-position: inside;
+
+}
+.steps li::marker{
+    color: #d4ff3f;
+    font-size: 1.5em;
 }

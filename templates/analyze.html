@@ -11,8 +11,13 @@
     <title>Analyze</title>
 </head>
 <body>
-                    <header> 
-                        youssef
+                <header> 
+                        <a href="#">{{name}}</a>
+                        <div>
+                            <a href="#developer_score">DEVELOPER SCORE</a>
+                            <a href="#lang_repo">LANGUAGES & REPOS</a>
+                            <a href="#ai">AI ANALYSES</a>
+                        </div>
                 </header>
         <section id="section1">
 
@@ -81,7 +86,7 @@
                 </div>
         </div>
         
-        <div class="developer_score">
+        <div class="developer_score" id="developer_score">
             <div class="score">
                 <p><i class="bi bi-trophy"></i> DEVELOPER SCORE</p>
                 <p><span>{{developer_score}}</span> / 100</p>
@@ -238,7 +243,7 @@
             {%endif%}
 
 
-        <h1 class="title" >AI ANALYSES</h1>
+        <h1 class="title" id="ai">AI ANALYSES</h1>
         <div class="ai">
            <div class="s_w">
                 <div class="steng">
@@ -261,14 +266,14 @@
             <div class="steps">
                 <div>
                     <h2>NEXT STEPS</h2>
-                    <p><span>CAREER LEVEL:</span>{{aiAnalyzer["career_level"]}}</p>
+                    <p><span>CAREER LEVEL: </span>{{aiAnalyzer["career_level"]}}</p>
                 </div>
                 <ul>
                         {%for step in aiAnalyzer["next_steps"]%}
                         <li>{{step}}</li>
                         {%endfor%}
                     </ul>
-                    <p>{{}}</p>
+                    
 
             </div>
         </div>

@@ -61,7 +61,7 @@ def ai_analyzer(profile):
 
                                     Rules for "next_steps":
                                         Return exactly 6 learning steps.
-                                        Each step must contain between 10 and 15 words.,"""}],
+                                        Each step must contain between 20 and 25 words.,"""}],
                                     
                                 response_format={"type": "json_object"},
     )
