@@ -40,17 +40,28 @@ def ai_analyzer(profile):
                                     {{
                                     "summary":"",
                                     "career_level":"",
-                                    "strengths":[],
-                                    "weaknesses":[],
-                                    "next_steps":[],
+                                    "strengths":['','','',''],
+                                    "weaknesses":['','','',''],
+                                    "next_steps":['','','',''],
                                     "Tips_To_improve":[]
         
                                     }}
                                     Rules for "Tips_To_improve" only :
-                                        - Return exactly 6 tips
-                                        - Each tip must contain between 7 and 11 words
-                                        - Do not repeat the same idea
-                                    """,}],
+                                        Return exactly 6 tips
+                                        Each tip must contain between 7 and 11 words
+                                        Do not repeat the same idea
+                                    
+                                    Rules for "strengths":
+                                        Return exactly 4 strengths.
+                                        Each strength must be between 4 and 10 words.
+
+                                    Rules for "weaknesses":
+                                        Return exactly 4 weaknesses.
+                                       Each weakness must be between 4 and 10 words.
+
+                                    Rules for "next_steps":
+                                        Return exactly 6 learning steps.
+                                        Each step must contain between 10 and 15 words.,"""}],
                                     
                                 response_format={"type": "json_object"},
     )

@@ -188,7 +188,7 @@ def analyzer():
                 "developer_score": developer_score,
                 "languages":language_bytes,
             }
-        # aiAnalyzer = ai_analyzer(profile)
+        aiAnalyzer = ai_analyzer(profile)
         if repos and repos > 0 :
             avg_stars = total_stars / repos
             avg_forks = total_forks/repos

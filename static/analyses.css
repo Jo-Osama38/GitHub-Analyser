@@ -318,6 +318,7 @@ progress{
     font-size: 1.1em;
     margin-bottom: 0.7em;
     opacity: 0.8;
+    list-style-position: inside;
 
 }
 .ai_tips li::marker{
@@ -350,7 +351,7 @@ progress{
     letter-spacing: 1px;
     opacity: 0.6;
 }
-.lang_repos{
+.title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -367,7 +368,6 @@ progress{
     margin:0 5% ;
     margin-bottom: 5em;
     min-height: 30em;
-
     height: auto;
 
 
@@ -472,4 +472,67 @@ progress{
     justify-content: center;
     align-items: center;
     margin-bottom: 0.7em;
+}
+.section_lang_repos div{
+    transition: 1s ease;
+}
+.section_lang_repos div:hover{
+    border-color: #d4ff3f;
+}
+.no_section_lang_repos{
+    display: flex;
+    width: 90%;
+    margin:0 5% ;
+    margin-bottom: 5em;
+    min-height: 30em;
+    height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.10);
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+.no_section_lang_repos h1{
+    color: red;
+    opacity: 0.6;
+    font-size: 5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ai {
+    display: flex;
+    flex-direction: column;
+}
+.s_w{
+    display: flex;
+    width: 90%;
+    margin:0 5% ;
+    justify-content: space-between;
+}
+.s_w div{
+    width: 49.5%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.192);
+    background-color: rgba(255, 255, 255, 0.10);
+    padding: 2.3em;
+}
+.s_w li{
+    font-size: 1.1em;
+    margin-bottom: 0.6em;
+
+
+}
+.s_w li::marker{
+    color: #d4ff3f;
+    font-size: 1.4em;
+}
+.s_w h2{
+    justify-self: center;
+    align-items: center;
+    color: #d4ff3f;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.6;
+    margin-bottom: auto;
 }
