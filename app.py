@@ -77,6 +77,7 @@ def analyzer():
     years_created_github = 0
     avg_stars =0
     avg_forks =0
+    top_6_languages = None
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -167,28 +168,8 @@ def analyzer():
             name_Last_project  = Latest_project(data_repos)
             years_created_github = created_since(create_at)
 
-        profile = {
-                "username": name,
-                "real_name": real_name,
-                "bio": bio,
-                "repositories": repos,
-                "followers": followers,
-                "following": following,
-                "years_on_github": years_created_github,
-                "last_activity_days": last_activity_days,
-                "total_stars": total_stars,
-                "total_forks": total_forks,
-                "average_stars": round(avg_stars, 2),
-                "average_forks": round(avg_forks, 2),
-                "top_language": top_language,
-                "languages": language_bytes,
-                "documentation_score": round(documentation_score, 1),
-                "first_project": name_first_project,
-                "latest_project": name_Last_project,
-                "developer_score": developer_score,
-                "languages":language_bytes,
-            }
-        aiAnalyzer = ai_analyzer(profile)
+
+        # aiAnalyzer = ai_analyzer(profile)
         if repos and repos > 0 :
             avg_stars = total_stars / repos
             avg_forks = total_forks/repos
@@ -211,7 +192,28 @@ def analyzer():
         score_profile =calc_score_profils(real_name,bio,company,location,blog)
 
         developer_score = score_repos+ score_stars+score_forks +score_documentation+score_activity+score_lang+score_profile
-
+        
+        profile = {
+                "username": name,
+                "real_name": real_name,
+                "bio": bio,
+                "repositories": repos,
+                "followers": followers,
+                "following": following,
+                "years_on_github": years_created_github,
+                "last_activity_days": last_activity_days,
+                "total_stars": total_stars,
+                "total_forks": total_forks,
+                "average_stars": round(avg_stars, 2),
+                "average_forks": round(avg_forks, 2),
+                "top_language": top_language,
+                "languages": language_bytes,
+                "documentation_score": round(documentation_score, 1),
+                "first_project": name_first_project,
+                "latest_project": name_Last_project,
+                "developer_score": developer_score,
+                "languages":language_bytes,
+            }
 
     return render_template('analyze.html', real_name= real_name,name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following

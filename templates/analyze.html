@@ -10,16 +10,25 @@
     <link rel="stylesheet" href="{{ url_for('static',filename= 'analyses.css') }}">
     <title>Analyze</title>
 </head>
+
 <body>
+    
+    {% if message %}
+        <div class="error_div">
+            <h1 class="error_h1">THE USERNAME IS NOT FOUND ENTER 'SEARCH AGAIN' AND TRY AGAIN</h1>
+            <a class="error_btn" href="{{ url_for('home')}}">SEARCH AGAIN</a>
+        </div>
+    {%else%}
+
                 <header> 
-                        <a href="#">{{name}}</a>
+                        <a href="#" class="n_head">{{name}}</a>
                         <div>
                             <a href="#developer_score">DEVELOPER SCORE</a>
                             <a href="#lang_repo">LANGUAGES & REPOS</a>
                             <a href="#ai">AI ANALYSES</a>
                         </div>
                 </header>
-        <section id="section1">
+         <section id="section1">
 
             <div class="part1">
                 <img src="{{url_img}}" >
@@ -281,11 +290,9 @@
         
 
 
-         
+    {%endif%}   
 
      
-    {% if message %}
-        <a class="btn" href="home">ReAnalyse</a>
-    {% endif %}
+
 </body>
 </html>

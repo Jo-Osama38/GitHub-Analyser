@@ -1,5 +1,6 @@
 body{
 
+    min-height: 100vh;
     color:white;
     background: linear-gradient(to bottom right,#d5ff3fab,black,black,black,black,black);
 
@@ -26,6 +27,7 @@ header{
     background:#d5ff3f1b;
     z-index:999;
     box-sizing: border-box;
+    justify-content: space-around;
 }
 #section1{
     margin-top: 8em;
@@ -580,4 +582,57 @@ progress{
 .steps li::marker{
     color: #d4ff3f;
     font-size: 1.5em;
+}
+
+
+header a{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    transition: 1s ease;
+    margin-right: 1em;
+}
+header .n_head{
+    font-size: 1.3em;
+    color:#d4ff3f;
+}
+header a:hover{
+    color: #5b7500;
+}
+
+
+
+
+.error_div{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.error_h1{
+    display: flex;
+    font-size: 4em;
+    color: red;
+    opacity: 0.7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2em;
+    text-align: center;
+
+}
+.error_btn{
+    box-sizing: border-box;
+    padding: 1em;
+    border-radius: 20px;
+    background-color: #d4ff3f;
+    color: black;
+    text-decoration: none;
+    transition: 1s ease;
+    font-size: 2em;
+}
+.error_btn:hover{
+    transform: scale(1.1);
 }
