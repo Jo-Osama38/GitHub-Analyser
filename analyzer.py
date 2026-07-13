@@ -92,13 +92,13 @@ def activiy(time):
 
 def calc_score_repos(repos):
     if repos :
-            if repos >= 15:
+            if repos <= 20:
                   score_repos = 5
-            elif 15 < repos <30:
+            elif 20 < repos <= 35:
                   score_repos = 10
-            elif 30 < repos < 50:
+            elif 35 < repos < 60:
                   score_repos = 15
-            elif 50 < repos:
+            elif 60 <= repos:
                   score_repos = 20
             else:
                   score_repos = 3
@@ -110,15 +110,15 @@ def calc_score_repos(repos):
 
 def calc_score_stars(avg):
     if avg:
-            if avg > 50:
+            if avg <= 50:
                 score_stars = 5
-            elif 50 < avg < 100 :
+            elif 50 < avg <= 100 :
                   score_stars = 7
-            elif 100 < avg < 150 :
+            elif 100 < avg <= 150 :
                   score_stars = 10
             elif 150 < avg < 200 :
                   score_stars = 13
-            elif  avg > 200 :
+            elif  avg >= 200 :
                   score_stars = 15
             else :
                   score_stars = 3
@@ -128,13 +128,13 @@ def calc_score_stars(avg):
 
 def calc_score_forks(avg):
     if avg:
-            if avg > 50:
+            if avg <= 50:
                 score_forks = 5
-            elif 50 < avg < 100 :
+            elif 50 < avg <= 100 :
                   score_forks = 7
-            elif 100 < avg < 150 :
+            elif 100 < avg <= 150 :
                   score_forks = 10
-            elif 150 < avg < 200 :
+            elif 150 < avg <= 200 :
                   score_forks = 13
             elif  avg > 200 :
                   score_forks = 15
@@ -152,25 +152,25 @@ def calc_score_doc(persent):
     return score_documentation
 
 def calc_score_activy(days):
-    if days < 3:
+    if days <= 3:
             score_activity = 10 
-    elif 3< days <  10:
+    elif 3< days <=  10:
           score_activity = 9
-    elif 10< days <  20:
+    elif 10< days <=  20:
           score_activity = 8
-    elif 20< days <  40:
+    elif 20< days <=  40:
           score_activity = 7
-    elif 40< days <  50:
+    elif 40< days <= 50:
           score_activity = 6
-    elif 50< days <  70:
+    elif 50< days <=  70:
           score_activity = 5
-    elif 70< days <  100:
+    elif 70< days <=  100:
           score_activity = 4
-    elif 100< days <  150:
+    elif 100< days <=  150:
           score_activity = 3
-    elif 150< days <  200:
+    elif 150< days <=  200:
           score_activity = 2
-    elif 200< days <  365:
+    elif 200< days <=  365:
           score_activity = 1
     else:
         score_activity =0

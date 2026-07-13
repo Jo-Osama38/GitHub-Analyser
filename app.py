@@ -9,7 +9,6 @@ from ai_analyzer import ai_analyzer
 import os
 
 app = Flask(__name__)
-
 load_dotenv()
 TOKEN = os.getenv("token")
 headers = {
@@ -169,7 +168,7 @@ def analyzer():
             years_created_github = created_since(create_at)
 
 
-        # aiAnalyzer = ai_analyzer(profile)
+         
         if repos and repos > 0 :
             avg_stars = total_stars / repos
             avg_forks = total_forks/repos
@@ -214,6 +213,7 @@ def analyzer():
                 "developer_score": developer_score,
                 "languages":language_bytes,
             }
+        aiAnalyzer = ai_analyzer(profile)
 
     return render_template('analyze.html', real_name= real_name,name = name ,repos = repos , url_img = url_img
                            ,message = message , bio = bio , followers =followers ,following=following

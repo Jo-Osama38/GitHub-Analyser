@@ -1,6 +1,10 @@
-from my_API import my_api
 from groq import Groq
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+my_api = os.getenv("api_key")
 
 client = Groq (api_key=my_api)
 
