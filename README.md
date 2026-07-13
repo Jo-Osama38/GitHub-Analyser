@@ -62,13 +62,13 @@ Link: https://youssef388.pythonanywhere.com/
 # IMAGES 
 
 #### home page 
-![](homepage1.png)
-![](homepage2.png)
-![](homepage3.png)
+![](static/homepage1.png)
+![](static/homepage2.png)
+![](static/homepage3.png)
 
 #### analyses page 
 
-![](analysepage1.png)
-![](analysepage2.png)
-![](analysepage3.png)
-![](analysepage4.png)
+![](static/analysepage1.png)
+![](static/analysepage2.png)
+![](static/analysepage3.png)
+![](static/analysepage4.png)
