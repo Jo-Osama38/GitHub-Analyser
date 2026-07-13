@@ -52,7 +52,7 @@ def ai_analyzer(profile):
                                     }}
                                     Rules for "Tips_To_improve" only :
                                         Return exactly 6 tips
-                                        Each tip must contain between 7 and 11 words
+                                        Each tip must contain between 6 and 10 words
                                         Do not repeat the same idea
                                     
                                     Rules for "strengths":
@@ -65,7 +65,7 @@ def ai_analyzer(profile):
 
                                     Rules for "next_steps":
                                         Return exactly 6 learning steps.
-                                        Each step must contain between 20 and 25 words.,"""}],
+                                        Each step must contain between 15 and 20 words.,"""}],
                                     
                                 response_format={"type": "json_object"},
     )
