@@ -636,3 +636,6 @@ header a:hover{
 .error_btn:hover{
     transform: scale(1.1);
 }
+#developer_score , #lang_repo,#ai{
+    scroll-margin-top: 4.5em;
+}
