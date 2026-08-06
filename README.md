@@ -57,6 +57,13 @@ My project, **GitHub Portfolio Analyzer**, is a website that uses the GitHub API
 ### Demo Link
 Link: https://github-analyser-c6de.onbelmo.uk/
 
+## how run locally in your computer
+- download this resosirory as a zip file
+- extract the zip file and open folder in VScode
+- Open the terminal and write "" pip install -r requirements.txt
+- run the app Write "" python app.py""
+- open your browser and visit "" http://127.0.0.1:5000 ""
+
 
 
 # IMAGES 
