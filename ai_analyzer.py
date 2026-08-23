@@ -10,7 +10,7 @@ client = Groq (api_key=my_api)
 
 def ai_analyzer(profile):
     stream = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model="openai/gpt-oss-120b",
         messages = [
             {
                 "role": "user",
