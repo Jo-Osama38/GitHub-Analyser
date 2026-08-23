@@ -25,7 +25,7 @@
 - وغيرها بس انا ناسي دلوقتي
 
 ### لينك التجربه
- اللينك : https://github-analyser-c6de.onbelmo.uk/
+ اللينك : https://yousefosamasalahgithubanalyse.pythonanywhere.com/
 
 # ENGLISH 
 ## GitHub Account Analysis
@@ -55,7 +55,7 @@ My project, **GitHub Portfolio Analyzer**, is a website that uses the GitHub API
 - And many others, but I can't remember them right now.
 
 ### Demo Link
-Link: https://github-analyser-c6de.onbelmo.uk/
+Link: https://yousefosamasalahgithubanalyse.pythonanywhere.com/
 
 ## how run locally in your computer
 - download this resosirory as a zip file
