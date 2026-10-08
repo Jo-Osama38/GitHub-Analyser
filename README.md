@@ -25,7 +25,8 @@
 - وغيرها بس انا ناسي دلوقتي
 
 ### لينك التجربه
- اللينك : https://yousefosamasalahgithubanalyse.pythonanywhere.com/
+https://githubanalyser.youssef-server.hackclub.app/
+
 
 # ENGLISH 
 ## GitHub Account Analysis
@@ -55,7 +56,7 @@ My project, **GitHub Portfolio Analyzer**, is a website that uses the GitHub API
 - And many others, but I can't remember them right now.
 
 ### Demo Link
-Link: https://yousefosamasalahgithubanalyse.pythonanywhere.com/
+Link: https://githubanalyser.youssef-server.hackclub.app/
 
 ## how run locally in your computer
 - download this resosirory as a zip file
